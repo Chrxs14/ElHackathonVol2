@@ -1,11 +1,10 @@
-const { Router } = require("express");
-const router = Router();
+const express = require('express');
+const productsRouter = require('./products.router');
 
-//Raiz
-router.get("/", (req, res) => {
-  res.json({
-    Title: "Hola mundo usando rutas!",
-  });
-});
+function routerApi(app) {
+  const router = express.Router();
+  app.use('/api/v1', router);
+  router.use('/products', productsRouter);
+}
 
-module.exports = router;
+module.exports = routerApi;

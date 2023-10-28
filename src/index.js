@@ -1,20 +1,32 @@
-const express = require("express");
+const express = require('express');
+const routerApi = require('./routes/index');
+const cors = require('cors');
+
 const app = express();
-const morgan = require("morgan");
+const port = process.env.PORT || 3000;
 
-//Configuraciones
-app.set("port", process.env.PORT || 3000);
-app.set("json spaces", 2);
-
-//Middleware
-app.use(morgan("dev"));
-app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-//Routes
-app.use(require('./routes/index'));
+const allowedOrigins = ['http://localhost:8080'];
 
-//Iniciando el servidor
-app.listen(app.get("port"), () => {
-  console.log(`Server listening on port ${app.get("port")}`);
+const options = {
+  origin: (origin, callback) => {
+    if (allowedOrigins.includes(origin) || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Origin not allowed'));
+    }
+  },
+};
+
+app.use(cors(options));
+
+app.get('/home', (req, res) => {
+  res.json('Home');
+});
+
+routerApi(app);
+
+app.listen(port, () => {
+  console.log(`Listening on port ${port}`);
 });
