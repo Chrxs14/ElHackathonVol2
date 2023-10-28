@@ -5,11 +5,7 @@ class ProductsService {
   }
 
   addProduct() {
-    const limit = 100;
-    for (let i = 0; i < limit; i++) {
-      this.products.push({
-      });
-    }
+    //DATA
   }
 
   async createProduct(data) {

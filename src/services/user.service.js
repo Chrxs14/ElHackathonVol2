@@ -5,11 +5,7 @@ class UsersService {
     }
   
     addUser() {
-      const limit = 100;
-      for (let i = 0; i < limit; i++) {
-        this.users.push({
-        });
-      }
+      //DATA
     }
   
     async createUser(data) {
@@ -20,7 +16,7 @@ class UsersService {
       return newUser;
     }
   
-    async getUser() {
+    async getUsers() {
       return new Promise((resolve) => {
         resolve(this.users);
       });

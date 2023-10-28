@@ -1,16 +1,16 @@
 const express = require('express');
 const router = express.Router();
-const ProductsService = require('../services/products.service');
-const services = new ProductsService();
+const ProductService = require('../services/product.service');
+const services = new ProductService();
 
 router.get('/', async (req, res) => {
   const products = await services.getProducts();
   res.json(products);
 });
 
-router.get('/filter', async (req, res) => {
-  res.send('Soy un filter');
-});
+// router.get('/filter', async (req, res) => {
+//   res.send('Soy un filter');
+// });
 
 // Dinamicos
 
