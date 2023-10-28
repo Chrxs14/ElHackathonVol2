@@ -1,3 +1,5 @@
+const mallData = require('../data/mall-data.js');
+
 class MallService {
         constructor() {
             this.malls = [];
@@ -5,7 +7,9 @@ class MallService {
         }
     
         addMalls() {
-            //DATA
+            this.malls.push(mallData.forEach((mall) => {
+                this.malls.push(mall);
+              }));
         }
     
         async createMall(data) {

@@ -1,11 +1,15 @@
+const productData = require('../data/product-data');
+
 class ProductsService {
   constructor() {
     this.products = [];
-    this.addProduct();
+    this.addProducts();
   }
 
-  addProduct() {
-    //DATA
+  addProducts() {
+    this.products.push(productData.forEach((product) => {
+      this.products.push(product);
+    }));
   }
 
   async createProduct(data) {

@@ -1,62 +1,66 @@
+const storeData = require('../data/store-data.js');
+
 class StoreService {
     constructor() {
-        this.store = [];
-        this.addItem();
+        this.stores = [];
+        this.addStore();
     }
 
-    addItem() {
-        //DATA    
+    addStore() {
+        this.stores.push(storeData.forEach((store) => {
+            this.stores.push(store);
+          }));
     }
 
     async createStore(data) {
         const newItem = {
             ...data,
         };
-        this.store.push(newItem);
+        this.stores.push(newItem);
         return newItem;
     }
 
     async getStores() {
         return new Promise((resolve) => {
-            resolve(this.store);
+            resolve(this.stores);
         });
     }
 
-    async getItemById(id) {
-        const item = this.store.find((item) => item.id === id);
-        if (!item) {
+    async getStoreById(id) {
+        const item = this.stores.find((store) => store.id === id);
+        if (!store) {
             console.log('error')
         }
-        if (item.isBlock) {
+        if (store.isBlock) {
             console.log('error')
         }
-        return item;
+        return store;
     }
 
-    async updateItemById(id, changes) {
-        const index = this.store.findIndex((item) => item.id === id);
+    async updateStoreById(id, changes) {
+        const index = this.stores.findIndex((store) => store.id === id);
 
         if (index === -1) {
             console.log('error')
         } else {
-            const item = this.store[index];
-            if (item.isBlock) {
+            const store = this.stores[index];
+            if (store.isBlock) {
                 console.log('error')
             }
-            this.store[index] = {
-                ...item,
+            this.stores[index] = {
+                ...store,
                 ...changes,
             };
-            return this.store[index];
+            return this.stores[index];
         }
     }
 
-    async deleteItemById(id) {
-        const index = this.store.findIndex((item) => item.id === id);
+    async deleteStoreById(id) {
+        const index = this.stores.findIndex((store) => store.id === id);
         if (index === -1) {
             console.log('error')
         }
-        this.store.splice(index, 1);
+        this.stores.splice(index, 1);
         return { id };
     }
 }

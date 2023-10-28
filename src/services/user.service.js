@@ -1,12 +1,16 @@
+const userData = require('../data/user-data.js'); 
+
 class UsersService {
-    constructor() {
+  constructor() {
       this.users = [];
       this.addUser();
-    }
-  
-    addUser() {
-      //DATA
-    }
+  }
+
+  addUser() {
+    this.users.push(userData.forEach((user) => {
+      this.users.push(user);
+    }));
+  }
   
     async createUser(data) {
       const newUser = {
