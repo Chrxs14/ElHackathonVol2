@@ -76,7 +76,7 @@ botonCamara.addEventListener('click', function() {
         navigator.mediaDevices.getUserMedia({ video: true })
             .then(function(stream) {
                 // El usuario ha permitido el acceso a la cámara, puedes redirigir a la aplicación de la cámara
-                window.location.href = 'tu-esquema-de-URL-para-la-aplicacion-de-la-camara'; // Reemplaza esto con el esquema de URL correcto para la aplicación de la cámara en tu dispositivo
+                window.location.href = 'scannerTest.html'; // Reemplaza esto con el esquema de URL correcto para la aplicación de la cámara en tu dispositivo
             })
             .catch(function(error) {
                 console.error('Error al acceder a la cámara: ', error);
