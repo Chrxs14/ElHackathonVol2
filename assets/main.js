@@ -64,3 +64,26 @@ jQuery(window).on('load', function() {
 		jQuery(window).trigger('scroll');
 	});
 });
+
+// Obtén el botón de la cámara por su ID
+var botonCamara = document.getElementById('botonCamara');
+
+// Agrega un event listener para el clic en el botón
+botonCamara.addEventListener('click', function() {
+    // Verificar si el navegador admite la API getUserMedia
+    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        // Solicitar acceso a la cámara
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(function(stream) {
+                // Obtener el elemento de video y mostrar la transmisión de la cámara
+                var videoElement = document.createElement('video');
+                videoElement.srcObject = stream;
+                document.body.appendChild(videoElement);
+            })
+            .catch(function(error) {
+                console.error('Error al acceder a la cámara: ', error);
+            });
+    } else {
+        console.error('Tu navegador no admite la API getUserMedia');
+    }
+});
