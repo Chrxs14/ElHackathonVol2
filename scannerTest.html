@@ -6,16 +6,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=devide-width, initial-scale=1.0">
     <title>Scanner Test</title>
+    <!-- Web Fonts  -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="lib/bootstrap/bootstrap.min.css">
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="assets/css/main.min.css">
+
+    <style>
+        #reader-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    </style>
+</head>
 
 <body>
     <script src="./qr.Script.js"></script>
-    <div stlye="text-align: center">
-        <div id="reader" style="width: 500px;"></div>
-        <div id="show" style="display: none;">
-            <h4>Scanned Result</h4>
-            <p id="result"></p>
+    <div class="background: #222">
+        <div id="reader-container">
+            <div class="text-align: center">
+                <div>
+                    <h2 class="text-align: center">Escanea tu código QR</h2>
+                </div>
+                <div id="reader" style="width: 500px;"></div>
+                <div id="show" style="display: none;">
+                    <h4>Scanned Result</h4>
+                    <p id="result"></p>
+                </div>
+            </div>
         </div>
     </div>
+
     <script>
         const html5QrCode = new Html5Qrcode(
             "reader", { formatsToSupport: [Html5QrcodeSupportedFormats.QR_CODE] });
