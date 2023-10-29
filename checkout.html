@@ -760,10 +760,7 @@
 										    </div><!-- End .card -->
 										</div><!-- End .accordion -->
 
-		                				<button type="submit" class="btn btn-outline-primary-2 btn-order btn-block">
-		                					<span class="btn-text">Place Order</span>
-		                					<span class="btn-hover-text">Proceed to Checkout</span>
-		                				</button>
+		                				<div id="pp-button"><button type="button" href="#" onclick="compraPayphone()">PAGA AQUI</button></div>
 		                			</div><!-- End .summary -->
 		                		</aside><!-- End .col-lg-3 -->
 		                	</div><!-- End .row -->
@@ -1137,6 +1134,35 @@
     </div><!-- End .modal -->
 
     <!-- Plugins JS File -->
+    
+    <script>
+    function compraPayphone(){
+        var parametros ={
+            amount:"779",
+            amountWithoutTax:"779",
+            clientTransactionId:"pruebaHackathon",
+            responseUrl:"http://127.0.0.1/response.php",
+            cancellationUrl:"http://127.0.0.1:4455/cancel.php"
+        };
+        $.ajax({
+            data:parametros,
+            dataType:'json',
+            url:"https://pay.payphonetodoesposible.com/api/button/Prepare",
+            type:'POST',
+            beforeSend:function(xhr){
+                xhr.setRequestHeader('Authorization', 'Bearer B6PJHsm5rwV2_uGCkEzikE4bChci_Ur7GH9dLLWTbFTKUfo5NXdDxQz_PL6A5zClghMnD__rXUe85gGvtKET-WSdtdZclak2i7yh8ssd-PQUKnVWSCBxderGJWDl0GY-c2t52J5CFMgMd_322hDMOOi4GpyhUbNofxQYBqO-YpoMoY1ihbGP4z33m2zCdXm-nsvYPVw913FK7Yti9KNshpaMbEKZA22GS7C0N3I8pxjqFxQA-KG2xIu1a915K1Nq9KlnSn49ZiSLPUYlMNQR3JNADf3SVMbPlH8848odk_Xv9JHwpWjofgKkXzLModBbNisVOA')
+            },
+             success:function SolicitarPago(respuesta){
+                location.href = respuesta.payWithCard;
+            }, error: function(mensajeerror){
+                alert ("Error en la llamada:" + mensajeerror.Message);
+            }
+            
+        });
+}
+
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/jquery.hoverIntent.min.js"></script>
@@ -1145,6 +1171,7 @@
     <script src="assets/js/owl.carousel.min.js"></script>
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
+
 </body>
 
 
