@@ -370,7 +370,8 @@
 
                                                         <div class="banner-content banner-content-top">
                                                             <div class="banner-title text-white">Last
-                                                                <br>Chance<br><span><strong>Sale</strong></span></div>
+                                                                <br>Chance<br><span><strong>Sale</strong></span>
+                                                            </div>
                                                             <!-- End .banner-title -->
                                                         </div><!-- End .banner-content -->
                                                     </a>
@@ -672,8 +673,8 @@
                                     <input value="Ecuador" type="text" class="form-control" required>
 
                                     <label>Street address *</label>
-                                    <input value="Avenida siempre viva" type="text" class="form-control" placeholder="House number and Street name"
-                                        required>
+                                    <input value="Avenida siempre viva" type="text" class="form-control"
+                                        placeholder="House number and Street name" required>
                                     <input type="text" class="form-control"
                                         placeholder="Appartments, suite, unit etc ..." required>
 
@@ -770,7 +771,8 @@
                                                 </div><!-- End .card-header -->
                                                 <div id="collapse-3" class="collapse" aria-labelledby="heading-3"
                                                     data-parent="#accordion-payment">
-                                                    <div class="card-body">Paga en efectivo directamente al recibir tu pedido.
+                                                    <div class="card-body">Paga en efectivo directamente al recibir tu
+                                                        pedido.
                                                     </div><!-- End .card-body -->
                                                 </div><!-- End .collapse -->
                                             </div><!-- End .card -->
@@ -783,7 +785,8 @@
                                                             aria-controls="collapse-4">
                                                             Payphone <small class="float-right paypal-link">¿Qué es
                                                                 Payphone?</small>
-                                                                <img src="assets\images\payphone-card.png" style="max-width: 40px;">
+                                                            <img src="assets\images\payphone-card.png"
+                                                                style="max-width: 40px;">
                                                         </a>
                                                     </h2>
                                                 </div><!-- End .card-header -->
@@ -812,7 +815,7 @@
                                                 </div><!-- End .card-header -->
                                                 <div id="collapse-5" class="collapse" aria-labelledby="heading-5"
                                                     data-parent="#accordion-payment">
-                                                    <div class="card-body"> 
+                                                    <div class="card-body">
                                                     </div><!-- End .card-body -->
                                                 </div><!-- End .collapse -->
                                             </div><!-- End .card -->
@@ -1217,12 +1220,36 @@
 
     <!-- Plugins JS File -->
 
+
+
     <script>
+        function generarContraseña(longitud) {
+            // Lista de caracteres que se pueden usar en la contraseña
+            const caracteres = ["abcdefghijklmnopqrstuvwxyz", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", "0123456789", "!@#$%^&*()-_=+"];
+
+            // Generar una contraseña aleatoria de la longitud especificada
+            const contraseña = "";
+            for (let i = 0; i < longitud; i++) {
+                // Elegir un carácter aleatorio de la lista
+                const índice = Math.floor(Math.random() * caracteres.length);
+                const carácter = caracteres[índice];
+
+                // Agregar el carácter a la contraseña
+                contraseña += carácter;
+            }
+
+            // Devolver la contraseña generada
+            return contraseña;
+        }
+
+        // Ejemplo de uso
+        const contraseña = generarContraseña(12);
+        console.log(contraseña); // Ejemplo de salida: "j234!@#$%^&*()-_="
         function compraPayphone() {
             var parametros = {
                 amount: "8499",
                 amountWithoutTax: "8399",
-                clientTransactionId: "pruebaHackathon3",
+                clientTransactionId: generarContraseña(12),
                 responseUrl: "https://el-hackathon-vol2.vercel.app/cart-success.html",
                 cancellationUrl: "https://el-hackathon-vol2.vercel.app/cart-declined.html"
             };
