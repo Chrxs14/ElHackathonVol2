@@ -27,9 +27,9 @@
 
 <body>
     <script src="./qr.Script.js"></script>
-    <div class="background: #222">
-        <div id="reader-container">
-            <div class="text-align: center">
+    <div style="background-color: #222222;">
+        <div style="background-color: #f4f4f4;" id="reader-container">
+            <div  class="text-align: center">
                 <div>
                     <h2 class="text-align: center">Escanea tu código QR</h2>
                 </div>
@@ -46,7 +46,9 @@
         const html5QrCode = new Html5Qrcode(
             "reader", { formatsToSupport: [Html5QrcodeSupportedFormats.QR_CODE] });
         const qrCodeSuccessCallback = (decodedText, decodedResult) => {
-            /* handle success */
+            setTimeout(() => {
+                window.location.href = decodedText;
+            }, 1);
         };
         const config = { fps: 10, qrbox: { width: 250, height: 250 } };
 
