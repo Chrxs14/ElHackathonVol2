@@ -34,8 +34,31 @@
 		<!-- Theme CSS -->
 		<link rel="stylesheet" href="assets/css/main.min.css">
 
+		<style>
+			/* Estilos para el botón flotante */
+			.mobile-float-button {
+				position: fixed;
+				bottom: 20px; /* Ajusta la distancia desde la parte inferior de la pantalla */
+				right: 20px; /* Ajusta la distancia desde el lado derecho de la pantalla */
+				background-color: #007bff; /* Color de fondo del botón */
+				color: #fff; /* Color del texto del botón */
+				padding: 15px 20px; /* Espaciado interno del botón */
+				border-radius: 50%; /* Borde redondeado para hacer un círculo */
+				box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3); /* Sombra para el botón */
+				z-index: 999; /* Asegura que el botón esté por encima de otros elementos */
+				font-size: 18px;
+				text-align: center;
+				cursor: pointer;
+			}
+
+			.mobile-float-button:hover {
+				background-color: #0056b3; /* Cambia el color de fondo cuando se pasa el mouse sobre el botón */
+			}
+
+		</style>
+
 	</head>
-	<body>
+	<body>		  
 		<div class="page-wrapper">
 			<header id="header">
 				<div class="container-lg">
@@ -216,6 +239,9 @@
 						<li>
 							<a href="login.html">Registrar Sesión</a>
 						</li>
+						<li>
+							<a href="cart.html">Carrito</a>
+						</li>
 					</ul>
 				</nav><!-- End .mobile-nav -->
 
@@ -235,8 +261,11 @@
 		<script src="lib/jquery.lazyload/jquery.lazyload.min.js"></script>
 		<script src="lib/isotope/jquery.isotope.min.js"></script>
 		
+		<div class="mobile-float-button button-hidden" id="botonCamara">Cam</div>
+
 		<!-- Theme Base, Components and Settings -->
 		<script src="assets/main.js"></script>
+		
 	</body>
 
 <!-- molla/index.html  22 Nov 2019 09:54:50 GMT -->
