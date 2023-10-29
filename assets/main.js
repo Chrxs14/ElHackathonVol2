@@ -64,3 +64,25 @@ jQuery(window).on('load', function() {
 		jQuery(window).trigger('scroll');
 	});
 });
+
+// Obtén el botón de la cámara por su ID
+var botonCamara = document.getElementById('botonCamara');
+
+// Agrega un event listener para el clic en el botón
+botonCamara.addEventListener('click', function() {
+    // Verificar si el navegador admite la API de captura de medios
+    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        // Solicitar acceso a la cámara con la opción de video
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(function(stream) {
+                // El usuario ha permitido el acceso a la cámara, puedes redirigir a la aplicación de la cámara
+                window.location.href = 'scannerTest.html'; // Reemplaza esto con el esquema de URL correcto para la aplicación de la cámara en tu dispositivo
+            })
+            .catch(function(error) {
+                console.error('Error al acceder a la cámara: ', error);
+            });
+    } else {
+        console.error('Tu navegador no admite la API de captura de medios');
+    }
+});
+
