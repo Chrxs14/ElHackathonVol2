@@ -1228,14 +1228,14 @@
             const caracteres = ["abcdefghijklmnopqrstuvwxyz", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", "0123456789", "!@#$%^&*()-_=+"];
 
             // Generar una contraseña aleatoria de la longitud especificada
-            const contraseña = "";
+            let contraseña = "";
             for (let i = 0; i < longitud; i++) {
                 // Elegir un carácter aleatorio de la lista
                 const índice = Math.floor(Math.random() * caracteres.length);
-                const carácter = caracteres[índice];
+                const caracter = caracteres[índice];
 
                 // Agregar el carácter a la contraseña
-                contraseña += carácter;
+                contraseña += caracter;
             }
 
             // Devolver la contraseña generada
@@ -1243,13 +1243,13 @@
         }
 
         // Ejemplo de uso
-        const contraseña = generarContraseña(12);
-        console.log(contraseña); // Ejemplo de salida: "j234!@#$%^&*()-_="
+         // Ejemplo de salida: "j234!@#$%^&*()-_="
         function compraPayphone() {
+            let contraseña = generarContraseña(12);
             var parametros = {
-                amount: "8499",
+                amount: "8399",
                 amountWithoutTax: "8399",
-                clientTransactionId: generarContraseña(12),
+                clientTransactionId: "token348y328472894728974",
                 responseUrl: "https://el-hackathon-vol2.vercel.app/cart-success.html",
                 cancellationUrl: "https://el-hackathon-vol2.vercel.app/cart-declined.html"
             };
